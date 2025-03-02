@@ -3,5 +3,6 @@
 
 int main() {
     std::cout << "VERSION: " << version() << std::endl;
+    std::cout << "Hello, world!" << std::endl;
     return EXIT_SUCCESS;
 }
