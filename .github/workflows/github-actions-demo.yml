@@ -13,11 +13,11 @@ jobs:
         with:
           submodules: true
       - run: sudo apt-get update && sudo apt-get install libboost-test-dev -y && sudo apt-get install libxorg-gtest-dev -y
-      - run: pip3 install conan
-      - run: conan profile detect --force
-      - run: conan install . --output-folder=build --build=missing
+#      - run: pip3 install conan
+#      - run: conan profile detect --force
+#      - run: conan install . --output-folder=build --build=missing
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
-      - run: cd build
+      - run: mkdir build && cd build
       - run: cmake --build .
       - run: cmake --build . --target test
       - run: cmake --build . --target package
