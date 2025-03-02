@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - run: pip3 install conan
       - run: conan install . --output-folder=build --build=missing
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
       - run: cd build
