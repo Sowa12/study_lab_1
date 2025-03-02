@@ -3,8 +3,6 @@
 #include <lib.h>
 
 #include <gtest/gtest.h>
-#include <gmock/gmock.h>
-
 TEST(VersionTest, Positive) {
 	EXPECT_TRUE(version() > 0);
 }
