@@ -16,11 +16,10 @@ jobs:
 #      - run: pip3 install conan
 #      - run: conan profile detect --force
 #      - run: conan install . --output-folder=build --build=missing
-      - run: cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
-      - run: mkdir build && cd build
-      - run: cmake --build .
-      - run: cmake --build . --target test
-      - run: cmake --build . --target package
+      - run: cmake -B build -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON -DWITH_GTEST_TEST=ON
+      - run: cmake --build build
+      - run: cmake --build build --target test
+      - run: cmake --build build --target package
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
