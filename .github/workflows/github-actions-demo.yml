@@ -13,7 +13,7 @@ jobs:
         with:
           submodules: true
       - run: pip3 install conan
-      - run: conan porfile detect
+      - run: conan profile detect --force
       - run: conan install . --output-folder=build --build=missing
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
       - run: cd build
